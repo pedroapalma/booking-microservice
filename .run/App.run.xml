@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="App" type="Application" factoryName="Application" singleton="false">
+    <envs>
+      <env name="DB_USER" value="root" />
+      <env name="DB_PASS" value="root" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.pedro.bookingmicroservice.BookingMicroserviceApplication" />
+    <module name="booking-microservice" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
