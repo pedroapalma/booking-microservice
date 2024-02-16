@@ -20,6 +20,7 @@ server:
 eureka:
   instance:
     instance-id: ${spring.application.name}:${random.uuid}
+    hostname: localhost
 
 # Actuator
 management:

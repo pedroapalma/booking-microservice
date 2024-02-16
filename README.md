@@ -6,6 +6,7 @@
 
 - `application.name`: Service discovery registration name.
 - `eureka.instance.instance-id`: Unique identifier for the application instance.
+- `eureka.instance.hostname`: is used in a Spring project with Eureka to explicitly set the hostname or IP address that Eureka clients should use when registering with the Eureka server. This configuration is often necessary when the API Gateway is unable to find routes during HTTP calls.
 - `server.port`: Dynamic port for automatic assignment at runtime.
 
 **Database (Mysql):**
