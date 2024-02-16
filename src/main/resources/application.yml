@@ -1,0 +1,29 @@
+spring:
+  # Eureka (Discovery Server)
+  application:
+    name: booking-microservice
+  # Mongodb
+  datasource:
+    url: jdbc:mysql://localhost:3306/bookingdb
+    username: ${DB_USER} # Fill from Vault
+    password: ${DB_PASS} # Fill from Vault
+  # RabbitMQ
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: ${RABBITMQ_USER} # Fill from Vault
+    password: ${RABBITMQ_PASS} # Fill from Vault
+
+# Eureka (Discovery Server)
+server:
+  port: 0
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}
+
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

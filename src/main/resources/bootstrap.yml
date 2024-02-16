@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    application-name: booking-microservice
+    # Config Server
+    config:
+      uri: http://localhost:8888/
+    # HashiCorp Vault
+    vault:
+      application-name: booking-microservice
+      host: localhost
+      port: 8201
+      scheme: http
+      authentication: TOKEN
+      token: ${VAULT_TOKEN}
