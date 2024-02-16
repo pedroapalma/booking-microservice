@@ -4,6 +4,7 @@ spring:
     # Config Server
     config:
       uri: http://localhost:8888/
+      profile: dev
     # HashiCorp Vault
     vault:
       application-name: booking-microservice

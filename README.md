@@ -33,6 +33,7 @@
 **Config Server:**
 
 - `cloud.config.uri`: URL of the Config Server to fetch configurations from.
+- `cloud.config.profile`: Is used to specify the profile that the application should use when retrieving configuration properties from a centralized configuration server.
 
 **HashiCorp Vault:**
 
