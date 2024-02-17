@@ -76,3 +76,54 @@ This project leverages the following Spring Boot dependencies:
 ### Messaging
 
 - `spring-cloud-starter-bus-amqp`: Library is used to enable distributed messaging using the AMQP (Advanced Message Queuing Protocol) protocol in Spring Cloud applications. This library facilitates communication between microservices by allowing them to publish and subscribe to messages through RabbitMQ, an AMQP-based message broker. One of the key features provided by spring-cloud-starter-bus-amqp is the ability to dynamically refresh configuration properties across multiple instances of microservices without requiring a restart. This is achieved through the /actuator/busrefresh endpoint provided by Spring Boot Actuator. When a configuration change is made in the centralized configuration server and triggered using the /actuator/busrefresh endpoint, the configuration server sends a refresh event to all microservices subscribed to the Spring Cloud Bus via RabbitMQ. Each microservice instance then retrieves the updated configuration properties and applies them dynamically, without needing to be restarted. This approach enhances the flexibility and agility of microservices architectures, allowing configuration changes to be propagated efficiently across the distributed system. ([https://cloud.spring.io/spring-cloud-bus/](https://cloud.spring.io/spring-cloud-bus/))
+
+## Infrastructure with Docker Compose
+
+This project leverages Docker Compose to manage its infrastructure components through containerized services. Here's a breakdown of the key technologies used:
+
+- **MySQL:** Relational database for data storage.
+- **HashiCorp Vault:** Secure secrets management for credentials and configurations.
+- **RabbitMQ:** Messaging system for asynchronous communication between microservices.
+
+**Docker Compose File Locations:**
+
+- `src/main/resources/docker-compose/mysql/docker-compose.yml`: Defines configuration for MySQL.
+- `src/main/resources/docker-compose/rabbitmq/docker-compose.yml`: Defines configuration for RabbitMQ.
+- `src/main/resources/docker-compose/vault/docker-compose.yml`: Defines configuration for Vault.
+
+**Running the Containers:**
+
+1. Ensure Docker is installed and running.
+2. Navigate to the docker compose file directory.
+3. Execute the following command:
+
+```
+docker-compose up -d
+```
+
+**Service Access:**
+
+- **MySQL:**
+
+    - Hostname: `mysql`
+    - Port: `3306`
+    - Username: `root`
+    - Password: `password` 
+
+- **RabbitMQ:**
+
+    - Hostname: `rabbitmq`
+    - Port: `5672` (communication)
+    - Port: `15672` (web interface)
+    - Username: `user`
+    - Password: `pass` 
+
+- **Vault:**
+
+    - Port: `8201`
+    - Root Token: `00000000-0000-0000-0000-000000000000` 
+
+
+**Customize Configurations:**
+
+Edit the `docker-compose.yml` files to adjust credentials, ports, container names, etc. Refer to the official Docker Compose documentation for more details.
